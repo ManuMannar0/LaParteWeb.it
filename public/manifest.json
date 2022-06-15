@@ -1,0 +1,17 @@
+{
+    "name": "Titolo sito",
+    "short_name": "sito",
+    "theme_color": "#e0e0e0",
+    "background_color": "#e0e0e0",
+    "display": "browser",
+    "orientation": "landscape",
+    "scope": "/",
+    "start_url": "/",
+    "icons": [
+        {
+            "src": "favicon.ico",
+            "sizes": "64x64 32x32 24x24 16x16",
+            "type": "image/x-icon"
+        }
+    ]
+}
