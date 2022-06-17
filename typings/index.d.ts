@@ -6,3 +6,4 @@ declare module "*.jpeg";
 declare module "*.ico";
 declare module "*.otf";
 declare module "*.ttf";
+declare module "*.mp4";

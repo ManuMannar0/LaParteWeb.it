@@ -1,5 +1,6 @@
 import SimpleEmptyComponent from "core/components/SimpleEmptyComponent/SimpleEmptyComponent"
 import { ICustomizeSite } from "core/model/model"
+import Home from "./comps/Home"
 
 /**
  * You can pass:
@@ -10,17 +11,15 @@ import { ICustomizeSite } from "core/model/model"
 
 export const CUSTOMIZED_SITE: ICustomizeSite = {
 
-    loading: false,
-    error: false,
-    logo: false,
-    header: false,
-    menu: false,
-    home: false,
-    category:false,
+    logo: <SimpleEmptyComponent />,
+    header: <SimpleEmptyComponent />,
+    menu: <SimpleEmptyComponent />,
+    home: <Home />,
+    category: false,
     page: false,
     post: false,
     custom: false,
-    footer: false,
+    footer: <SimpleEmptyComponent />,
     help: false,
 }
 
