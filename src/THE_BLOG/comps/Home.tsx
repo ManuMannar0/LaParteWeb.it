@@ -78,7 +78,6 @@ const LiTitle = (props: IHomePost) => {
             islititlevisible={!isPostVisible}
             ismobile={isMobile}
         >
-        {/* <div href={props.href} target='_blank'> */}
             <StyledTitle
                 onClick={() => toggleClick()}
             >
