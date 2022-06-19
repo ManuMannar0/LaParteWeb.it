@@ -31,13 +31,15 @@ const StyledLiTitle = styled.li<{
     z-index: 1;
     height: 100vh;
     align-items: ${props => props.ismobile ? 'center' : 'flex-start'};
-    margin-left: ${props => !props.ismobile && '1rem'};
+    margin-left: ${props => props.ismobile ? '1rem' : '10vw'};
+    margin-right: ${props => props.ismobile && '1rem'};
 `
 const StyledTitle = styled.h1`
     color: white;
     font-size: 4rem;
     cursor: pointer;
     filter: drop-shadow(white 0px 0px 7px);
+    text-align: center;
 `
 const StyledPostContent = styled.div<{
     ispostvisible: boolean,
@@ -53,14 +55,19 @@ const StyledPostContent = styled.div<{
     right: 0;
     opacity: 0.7;
     z-index: 1;
+    overflow: scroll;
 
     p {
         font-size: 2rem;
         padding: 1rem 1rem 0 1rem;
         text-align: ${props => props.ismobile && 'center'};
-    }
-`
 
+        br {
+            display: none;
+        }
+    }
+
+`
 const LiTitle = (props: IHomePost) => {
     const dispatch = useDispatch()
     const isPostVisible = useSelector(isPostVisibleSelector)
@@ -91,7 +98,6 @@ const HomePost = (props: IHomePost) => <LiTitle key={uuidv4()} post={props.post}
 
 const Home = () => {    
     const dispatch = useDispatch()
-    const menuRoutes = useSelector(menuRoutesSelector)
     const posts = useSelector(postsSelector)
     const isMenuRouteSuccess = useSelector(isMenuRouteSuccessSelector)
     const isPostSuccess = useSelector(isPostSuccessSelector)
@@ -114,12 +120,14 @@ const Home = () => {
 
     return(
         <>
-            <StyledPostContent 
-                ispostvisible={isPostVisible}
-                ismobile={isMobile}
-                onClick={() => toggleClick()}
-                dangerouslySetInnerHTML={{ __html: content }} 
-            />
+            <section>
+                <StyledPostContent 
+                    ispostvisible={isPostVisible}
+                    ismobile={isMobile}
+                    onClick={() => toggleClick()}
+                    dangerouslySetInnerHTML={{ __html: content }} 
+                />
+            </section>
             <ModalLoader 
                 loading={isPostLoading && isPageLoading && isMenuLoading}
                 error={isPostError && isPageError && isMenuError}
