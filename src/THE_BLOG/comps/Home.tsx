@@ -122,36 +122,25 @@ const Title = (props: ITitles) => {
     const unicodeNum = (index: number) => {
         switch (index) {
             case 1:
-                // return "①"
                 return "❶"
-                break;
             case 2:
                 return "❷"
-                break;
             case 3:
                 return "❸"
-                break;
             case 4:
                 return "❹"
-                break;
             case 5:
                 return "❺"
-                break;
             case 6:
                 return "❻"
-                break;
             case 7:
                 return "❼"
-                break;
             case 8:
                 return "❽"
-                break;
             case 9:
                 return "❾"
-                break;
             default:
                 return "#"
-                break;
         }
     }
 
