@@ -13,7 +13,7 @@ import { SET_CONTENT, SET_ISPOSTVISIBLE } from "THE_BLOG/store/homepage/actions"
 import Loading from "./Loading";
 import $ from 'jquery'
 import { the_blog_title } from "THE_BLOG/THE_BLOG_Settings";
-import BackgroundVideo from "./BackgroundVideo";
+import BackgroundVideo from "./BackGroundVideo";
 
 
 type ITitles = {

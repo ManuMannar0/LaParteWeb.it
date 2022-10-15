@@ -8,24 +8,16 @@ import store from 'core/store/store';
 import custom from "./THE_BLOG/THE_BLOG_Components"
 import './THE_BLOG/THE_BLOG_Font.css'
 
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <HashRouter>
-//       <Provider store={store}>
-//         <Root custom={custom} />
-//       </Provider>
-//     </HashRouter>
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
-
-const rootElement = document.getElementById("root");
-
-if (rootElement.hasChildNodes()) {
-  ReactDOM.hydrate(<App />, rootElement);
-} else {
-  ReactDOM.render(<App />, rootElement);
-}
+ReactDOM.render(
+  <React.StrictMode>
+    <HashRouter>
+      <Provider store={store}>
+        <Root custom={custom} />
+      </Provider>
+    </HashRouter>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 
 reportWebVitals();
 
