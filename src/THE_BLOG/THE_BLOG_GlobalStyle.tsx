@@ -18,6 +18,7 @@ const GlobalStyle = createGlobalStyle<{}>`
     body {
         color: white;
         background-color: #2196f3;
+        font-family: 'Poppins', sans-serif;
     }
 
     a {
