@@ -26,7 +26,6 @@ const StyledTitle = styled.a<{
     ismobile: boolean,
 }>`
     position: relative;
-    font-size: ${props => props.ismobile ? '2rem' : '4rem'};
     cursor: pointer;
     line-height: 1;
     margin: 3px;
@@ -70,7 +69,6 @@ const StyledPostContent = styled.div<{
     overflow: scroll;
 
     p {
-        font-size: 2rem;
         padding: 1rem 1rem 0 1rem;
 
         br {
@@ -84,6 +82,7 @@ const StyledPageSections = styled.div`
     flex-direction: column;
     justify-content: space-between;
     height: 100vh;
+    gap: 2rem;
 `
 
 const StyledTopPage = styled.div<{
@@ -95,22 +94,18 @@ const StyledTopPage = styled.div<{
     padding: 1rem;
     z-index: 1;
 `
-const StyledTopSXPage = styled.div<{
-    ismobile: boolean
-}>`
+const StyledTopSXPage = styled.div`
     flex: 3;
-
-    p {
-        font-size: ${props => props.ismobile ? '1.4rem' : '1.8rem'};
-    }
+    font-size: clamp(1.4rem, 2vw, 2.5rem);
 `
 const StyledBottomPage = styled.h1<{
     ismobile: boolean
 }>`
     z-index: 1;
     padding: 1rem;
+    font-size: clamp(1.9rem, 6vw, 4rem);
 `
-const StyledLogo = styled.h1`
+const StyledLogo = styled.h5`
     text-transform: uppercase;
 `
 
@@ -218,7 +213,6 @@ const Home = () => {
                             >
                                 <StyledTopSXPage 
                                     id="StyledTopSXPage" 
-                                    ismobile={isMobile}
                                 >
                                     <StyledLogo id="StyledLogo">{the_blog_title}</StyledLogo>
                                     {page.map((post: IPage) => <div id="dangerouslySetInnerHTML" dangerouslySetInnerHTML={{ __html: post.content.rendered }} />)}
