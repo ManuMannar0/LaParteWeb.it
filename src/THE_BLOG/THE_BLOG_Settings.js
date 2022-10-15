@@ -10,3 +10,4 @@ export const the_blog_title = 'La parte web'
 export const the_blog_description = 'La parte codice del web'
 // CATEGORIES
 // OTHER
+export const video_bkg = 'waves.mp4'

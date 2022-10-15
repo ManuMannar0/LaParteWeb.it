@@ -22,10 +22,10 @@ const Root = ({custom}: {custom: ICustomizeSite}) => {
     const dispatch = useDispatch()
     
     dispatch(FETCH_MENUROUTES_BEGIN())
-    fetch(API_menuRoutes)
-        .then(resp => resp.json())
-        .then(json => dispatch(FETCH_MENUROUTES_SUCCESS(json.items)))
-        .catch(error => dispatch(FETCH_MENUROUTES_FAILURE(true)))
+    // fetch(API_menuRoutes)
+    //     .then(resp => resp.json())
+    //     .then(json => dispatch(FETCH_MENUROUTES_SUCCESS(json.items)))
+    //     .catch(error => dispatch(FETCH_MENUROUTES_FAILURE(true)))
         
     dispatch(FETCH_POSTS_BEGIN())
     fetch(API_postsArchive)
