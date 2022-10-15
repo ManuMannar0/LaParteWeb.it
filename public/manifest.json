@@ -1,17 +1,10 @@
 {
-    "name": "La parte web",
-    "short_name": "La parte web",
+    "name": "La Parte Web | The code side of your project",
+    "short_name": "La Parte Web | The code side of your project",
     "theme_color": "#e0e0e0",
     "background_color": "#e0e0e0",
     "display": "browser",
     "orientation": "landscape",
     "scope": "/",
-    "start_url": "/",
-    "icons": [
-        {
-            "src": "favicon.32",
-            "sizes": "64x64 32x32 24x24 16x16",
-            "type": "image/x-icon"
-        }
-    ]
+    "start_url": "/"
 }
