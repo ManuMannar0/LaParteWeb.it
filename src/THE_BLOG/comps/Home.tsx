@@ -14,6 +14,7 @@ import Loading from "./Loading";
 import $ from 'jquery'
 import { the_blog_title } from "THE_BLOG/THE_BLOG_Settings";
 import BackgroundVideo from "./BackGroundVideo";
+import HiddenImagesForMeta from "./HiddenImagesForMeta";
 
 
 type ITitles = {
@@ -180,6 +181,7 @@ const Home = () => {
 
     return(
         <>
+            <HiddenImagesForMeta />
             <StyledPostContent 
                 id="StyledPostContent"
                 ispostvisible={isPostVisible}
