@@ -7,7 +7,7 @@ const HiddenImagesForMeta = () => {
 
     return(
         <>
-            <img src={imgSeo1} alt={the_blog_title} style={{display: "hidden"}} />
+            <img src={imgSeo1} alt={the_blog_title} style={{display: "none"}} />
         </>
     )
 }

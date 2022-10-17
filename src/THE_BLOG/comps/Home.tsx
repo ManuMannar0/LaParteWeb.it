@@ -181,7 +181,6 @@ const Home = () => {
 
     return(
         <>
-            <HiddenImagesForMeta />
             <StyledPostContent 
                 id="StyledPostContent"
                 ispostvisible={isPostVisible}
@@ -232,6 +231,7 @@ const Home = () => {
                 />
             </StyledPageSections>
 
+            <HiddenImagesForMeta />
             <BackgroundVideo />
         </>
     )
