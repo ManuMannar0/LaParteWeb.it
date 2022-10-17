@@ -17,9 +17,8 @@ const GlobalStyle = createGlobalStyle<{}>`
 
     body {
         color: white;
-        background-color: #2196f3;
+        background-color: black;
         font-family: 'IBM Plex Sans', sans-serif;
-        /* font-family: 'Poppins', sans-serif; */
     }
 
     a {

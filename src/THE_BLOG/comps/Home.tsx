@@ -10,12 +10,10 @@ import { useWidthWindowSize } from "core/features/device";
 import { v4 as uuidv4 } from 'uuid';
 import { contentSelector, isPostVisibleSelector } from "THE_BLOG/store/homepage/selectors";
 import { SET_CONTENT, SET_ISPOSTVISIBLE } from "THE_BLOG/store/homepage/actions";
-import Loading from "./Loading";
 import $ from 'jquery'
 import { the_blog_title } from "THE_BLOG/THE_BLOG_Settings";
 import BackgroundVideo from "./BackGroundVideo";
 import HiddenImagesForMeta from "./HiddenImagesForMeta";
-
 
 type ITitles = {
     post: any,
@@ -30,7 +28,6 @@ const StyledTitle = styled.a<{
     cursor: pointer;
     line-height: 1;
     margin: 3px;
-    /* filter: drop-shadow(white 0px 0px 7px); */
 `
 const StyledSuperButtons = styled.div<{
     ismobile: boolean,
@@ -44,7 +41,6 @@ const StyledSuperButtons = styled.div<{
     line-height: 1;
     margin: 3px;
     gap: 1rem;
-    /* filter: drop-shadow(white 0px 0px 7px); */
     
     div {
         width: ${props => props.ismobile ? '3rem' : '4rem'};
@@ -85,7 +81,6 @@ const StyledPageSections = styled.div`
     height: 100vh;
     gap: 2rem;
 `
-
 const StyledTopPage = styled.div<{
     ismobile: boolean
 }>`
@@ -193,7 +188,7 @@ const Home = () => {
                     loading={isPostLoading && isPageLoading}
                     error={isPostError && isPageError }
                     success={isPostSuccess && isPageSuccess}
-                    componentOnLoading={<Loading />}
+                    componentOnLoading={<></>}
                     componentOnError={<></>}
                     componentOnSuccess={
                         <>
