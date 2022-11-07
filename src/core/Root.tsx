@@ -33,11 +33,11 @@ const Root = ({custom}: {custom: ICustomizeSite}) => {
         .then(json => dispatch(FETCH_POSTS_SUCCESS(json)))
         .catch(error => dispatch(FETCH_POSTS_FAILURE(true)))
     
-    dispatch(FETCH_PAGES_BEGIN())
-    fetch(API_pagesArchive)
-        .then(resp => resp.json())
-        .then(json => dispatch(FETCH_PAGES_SUCCESS(json)))
-        .catch(error => dispatch(FETCH_PAGES_FAILURE(true)))
+    // dispatch(FETCH_PAGES_BEGIN())
+    // fetch(API_pagesArchive)
+    //     .then(resp => resp.json())
+    //     .then(json => dispatch(FETCH_PAGES_SUCCESS(json)))
+    //     .catch(error => dispatch(FETCH_PAGES_FAILURE(true)))
 
     return(
         <>

@@ -1,6 +1,14 @@
 import styled, { createGlobalStyle, ThemeProvider} from "styled-components";
+import font from './font/Kamryn3DItalic-JRK6E.ttf';
 
 const GlobalStyle = createGlobalStyle<{}>`
+
+    @font-face {
+        font-family: 'font';
+        font-style: normal;
+        font-weight: 400;
+        src: url(${font});
+    }
 
     html,body,button,ul,figure,p {
         border: 0;
@@ -17,8 +25,10 @@ const GlobalStyle = createGlobalStyle<{}>`
 
     body {
         color: white;
-        background-color: black;
-        font-family: 'IBM Plex Sans', sans-serif;
+        background-color: #114b7a;
+        /* font-family: 'IBM Plex Sans', sans-serif; */
+        font-family: 'Manrope', sans-serif;
+
     }
 
     a {
@@ -42,6 +52,7 @@ const GlobalStyle = createGlobalStyle<{}>`
         position: fixed;
         top: 0;
         left: 0;
+        filter: opacity(0.5);
     }
 `
 
