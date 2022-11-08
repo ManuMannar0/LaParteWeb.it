@@ -1,6 +1,6 @@
 import { the_blog_domain, the_blog_protocol, video_bkg } from "THE_BLOG/THE_BLOG_Settings"
 
-const BackgroundVideo = () => {
+const BkgVideo = () => {
     const video = `${the_blog_protocol}://${the_blog_domain}/${video_bkg}`
 
     return(
@@ -11,6 +11,6 @@ const BackgroundVideo = () => {
     )
 }
 
-export default BackgroundVideo
+export default BkgVideo
 
 

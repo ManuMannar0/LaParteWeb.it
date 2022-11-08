@@ -1,20 +1,18 @@
 import { useDispatch, useSelector } from "react-redux";
 import ModalLoader from "core/components/ModalLoader/ModalLoader"
-import { isPageErrorSelector, isPageLoadingSelector, isPageSuccessSelector, pagesSelector } from "core/store/pages/selectors"
+import { pagesSelector } from "core/store/pages/selectors"
 import { isPostErrorSelector, isPostLoadingSelector, isPostSuccessSelector, postsSelector } from "core/store/posts/selectors"
 import { replaceUnicode } from "core/features/strings";
 import styled from "styled-components";
 import { IPost } from "core/store/posts/slice";
-import { IPage } from "core/store/pages/slice";
 import { useWidthWindowSize } from "core/features/device";
 import { v4 as uuidv4 } from 'uuid';
 import { contentSelector, isPostVisibleSelector } from "THE_BLOG/store/homepage/selectors";
 import { SET_CONTENT, SET_ISPOSTVISIBLE } from "THE_BLOG/store/homepage/actions";
 import $ from 'jquery'
-import { the_blog_title, regataScript_landing, regataScript_alt } from "THE_BLOG/THE_BLOG_Settings";
-import BackgroundVideo from "./BackGroundVideo";
-import HiddenImageForMeta from "./HiddenImageForMeta";
-import regataLogo from '../imgs/regataLogo.png';
+import { the_blog_title } from "THE_BLOG/THE_BLOG_Settings";
+import BkgVideo from "./BkgVideo";
+import BkgImage from "./BkgImage";
 
 type ITitles = {
     post: any,
@@ -192,11 +190,8 @@ const Home = () => {
     const dispatch = useDispatch()
 
     const isPostSuccess = useSelector(isPostSuccessSelector)
-    // const isPageSuccess = useSelector(isPageSuccessSelector)
     const isPostLoading = useSelector(isPostLoadingSelector)
-    // const isPageLoading = useSelector(isPageLoadingSelector)
     const isPostError = useSelector(isPostErrorSelector)
-    // const isPageError = useSelector(isPageErrorSelector)
     
     const posts = useSelector(postsSelector)
     const page = useSelector(pagesSelector)
@@ -228,7 +223,8 @@ const Home = () => {
                     loading={!isPostSuccess}
                     error={isPostError }
                     success={isPostSuccess}
-                    componentOnLoading={<>TEST</>}
+                    componentOnLoading={<></>}
+                    // componentOnLoading={<FlowBanner text={the_blog_title}/>}
                     componentOnError={<></>}
                     componentOnSuccess={
                         <>
@@ -245,7 +241,6 @@ const Home = () => {
                                     >
                                         {the_blog_title}
                                     </StyledLogo>
-                                    {/* {page.map((post: IPage) => <div id="dangerouslySetInnerHTML" dangerouslySetInnerHTML={{ __html: post.content.rendered }} />)} */}
                                 </StyledTopSXPage>
                                 {/* <StyledSuperButtons
                                     href={regataScript_landing}
@@ -278,8 +273,8 @@ const Home = () => {
                 />
             </StyledPageSections>
 
-            <HiddenImageForMeta />
-            <BackgroundVideo />
+            <BkgImage />
+            <BkgVideo />
         </>
     )
 }
