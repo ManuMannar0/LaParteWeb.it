@@ -12,10 +12,8 @@ import { ICustomizeSite } from "./model/model";
 import Footer from "./site/Footer/Footer";
 import { useDispatch } from "react-redux";
 import { FETCH_POSTS_BEGIN, FETCH_POSTS_FAILURE, FETCH_POSTS_SUCCESS } from "./store/posts/actions";
-import { API_menuRoutes, API_pagesArchive, API_postsArchive } from "./settings/API/WPRestAPI";
-import { FETCH_MENUROUTES_BEGIN, FETCH_MENUROUTES_FAILURE, FETCH_MENUROUTES_SUCCESS } from "./store/menu/actions";
+import { API_postsArchive } from "./settings/API/WPRestAPI";
 import { GlobalStyle } from "THE_BLOG/THE_BLOG_GlobalStyle";
-import { FETCH_PAGES_BEGIN, FETCH_PAGES_FAILURE, FETCH_PAGES_SUCCESS } from "./store/pages/actions";
 import Help from "./site/Help/Help";
 import { useEffect } from "react";
 
