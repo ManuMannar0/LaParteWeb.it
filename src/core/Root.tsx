@@ -17,27 +17,18 @@ import { FETCH_MENUROUTES_BEGIN, FETCH_MENUROUTES_FAILURE, FETCH_MENUROUTES_SUCC
 import { GlobalStyle } from "THE_BLOG/THE_BLOG_GlobalStyle";
 import { FETCH_PAGES_BEGIN, FETCH_PAGES_FAILURE, FETCH_PAGES_SUCCESS } from "./store/pages/actions";
 import Help from "./site/Help/Help";
+import { useEffect } from "react";
 
 const Root = ({custom}: {custom: ICustomizeSite}) => {                                                      
     const dispatch = useDispatch()
     
-    dispatch(FETCH_MENUROUTES_BEGIN())
-    // fetch(API_menuRoutes)
-    //     .then(resp => resp.json())
-    //     .then(json => dispatch(FETCH_MENUROUTES_SUCCESS(json.items)))
-    //     .catch(error => dispatch(FETCH_MENUROUTES_FAILURE(true)))
-        
-    dispatch(FETCH_POSTS_BEGIN())
-    fetch(API_postsArchive)
-        .then(resp => resp.json())
-        .then(json => dispatch(FETCH_POSTS_SUCCESS(json)))
-        .catch(error => dispatch(FETCH_POSTS_FAILURE(true)))
-    
-    // dispatch(FETCH_PAGES_BEGIN())
-    // fetch(API_pagesArchive)
-    //     .then(resp => resp.json())
-    //     .then(json => dispatch(FETCH_PAGES_SUCCESS(json)))
-    //     .catch(error => dispatch(FETCH_PAGES_FAILURE(true)))
+    useEffect(() => {
+        dispatch(FETCH_POSTS_BEGIN())
+        fetch(API_postsArchive)
+            .then(resp => resp.json())
+            .then(json => dispatch(FETCH_POSTS_SUCCESS(json)))
+            .catch(error => dispatch(FETCH_POSTS_FAILURE(true)))
+    }, [])
 
     return(
         <>

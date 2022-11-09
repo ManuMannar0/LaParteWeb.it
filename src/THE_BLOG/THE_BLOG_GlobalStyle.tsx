@@ -3,56 +3,6 @@ import font from './font/Kamryn3DItalic-JRK6E.ttf';
 
 const GlobalStyle = createGlobalStyle`
 
-    /* 
-    @desktopAndTablet = "(min-width: 600px)";
-    @tablet: ~"(min-width: 600px) and (max-width: 959px)";
-    @tabletAndMobile: ~"(max-width: 959px)";
-    @tabletPortrait: ~"(min-width: 600px) and (max-width: 959px) and (orientation:portrait)";
-    @tabletLandscape: ~"(min-width: 600px) and (max-width: 959px) and (orientation:landscape)";
-    @mobile: ~"(max-width: 599px)";
-    @mobilePortrait: ~"(max-width: 599px) and (orientation:portrait)";
-    @mobileLandscape: ~"(max-width: 599px) and (orientation:landscape)";
-    @desktop: ~"(min-width: 960px)"; 
-    */
-
-    #StyledBkgImage {
-        @media(min-width: 600px) {
-            width: 120%;
-            height: unset;
-        }
-        @media(min-width: 600px) and (max-width: 959px) {
-            width: 120%;
-            height: unset;
-        }
-        @media(max-width: 959px) {
-            width: 120%;
-            height: unset;
-        }
-        @media(min-width: 600px) and (max-width: 959px) and (orientation:portrait) {
-            width: unset;
-            height: 120%;
-        }
-        @media(min-width: 600px) and (max-width: 959px) and (orientation:landscape) {
-            width: 120%;
-            height: unset;
-        }
-        @media(max-width: 599px) {
-            width: unset;
-            height: 120%;
-        }
-        @media(max-width: 599px) and (orientation:portrait) {
-            width: unset;
-            height: 120%;
-        }
-        @media(max-width: 599px) and (orientation:landscape) {
-            width: 120%;
-            height: unset;
-        }
-        @media(min-width: 960px) {
-            width: 120%;
-            height: unset;
-        }
-    }
     
     @font-face {
         font-family: 'font';
