@@ -13,6 +13,7 @@ import $ from 'jquery'
 import { the_blog_title } from "THE_BLOG/THE_BLOG_Settings";
 import BkgVideo from "./BkgVideo";
 import BkgImage from "./BkgImage";
+import Whatsapp from "./Whatsapp";
 
 type ITitles = {
     post: any,
@@ -250,7 +251,7 @@ const Home = () => {
                                     <img src={regataLogo} alt={regataScript_alt} />
                                 </StyledSuperButtons> */}
                             </StyledTopPage>
-                            
+                            <Whatsapp />
                             <StyledBottomPage 
                                 id="StyledBottomPage"
                                 ismobile={isMobile}
