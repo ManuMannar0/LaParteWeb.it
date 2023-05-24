@@ -7,18 +7,21 @@ import styled from "styled-components";
 import { IPost } from "core/store/posts/slice";
 import { useWidthWindowSize } from "core/features/device";
 import { v4 as uuidv4 } from 'uuid';
-import { contentSelector, isPostVisibleSelector } from "THE_BLOG/store/homepage/selectors";
+import { bkgColorSelector, contentSelector, isPostVisibleSelector } from "THE_BLOG/store/homepage/selectors";
 import { SET_CONTENT, SET_ISPOSTVISIBLE } from "THE_BLOG/store/homepage/actions";
-import $ from 'jquery'
-import { the_blog_title } from "THE_BLOG/THE_BLOG_Settings";
+import $ from 'jquery';
+import { regataScript_alt, regataScript_landing, the_blog_title } from "THE_BLOG/THE_BLOG_Settings";
 import BkgVideo from "./BkgVideo";
 import BkgImage from "./BkgImage";
 import Whatsapp from "./Whatsapp";
+import regataLogo from "../imgs/regataLogo.png"
+import MenuButton from "./MenuButton";
 
 type ITitles = {
     post: any,
     index: number,
     title: any,
+    bkgColor?: string,
 }
 
 const StyledTitle = styled.a<{
@@ -29,29 +32,30 @@ const StyledTitle = styled.a<{
     line-height: 1;
     margin: 3px;
 `
-// const StyledSuperButtons = styled.a<{
-//     ismobile: boolean,
-// }>`
-//     position: relative;
-//     display: flex;
-//     flex-wrap: nowrap;
-//     flex-direction: column;
-//     width: ${props => props.ismobile ? '3rem' : '4rem'};
-//     cursor: pointer;
-//     line-height: 1;
-//     margin: 3px;
-//     gap: 1rem;
+const StyledSuperButtons = styled.a<{
+    ismobile: boolean,
+}>`
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    width: ${props => props.ismobile ? '3rem' : '4rem'};
+    cursor: pointer;
+    line-height: 1;
+    margin: 3px;
+    gap: 1rem;
     
-//     div {
-//         width: ${props => props.ismobile ? '3rem' : '4rem'};
-//         height: ${props => props.ismobile ? '3rem' : '4rem'};
-//         text-align: center;
-//         border-radius: 3rem;
-//         border: 1px solid white;
-//     }
-// `
+    div {
+        width: ${props => props.ismobile ? '3rem' : '4rem'};
+        height: ${props => props.ismobile ? '3rem' : '4rem'};
+        text-align: center;
+        border-radius: 3rem;
+        border: 1px solid white;
+    }
+`
 const StyledPostContent = styled.div<{
     ispostvisible: boolean,
+    bkgcolor?: string,
 }>`
     display: ${props => props.ispostvisible ? 'block' : 'none'};
     color: white;
@@ -87,14 +91,20 @@ const StyledTopPage = styled.div<{
 }>`
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 1rem;
     z-index: 1;
     gap: 3rem;
 `
 const StyledTopSXPage = styled.div`
-    flex: 3;
-
+    p {
+        font-size: 1.5rem;
+    }
+`
+const StyledTopDXPage = styled.div`
+    display: flex;
+    flex-direction: column;
+    
     p {
         font-size: 1.5rem;
     }
@@ -198,6 +208,7 @@ const Home = () => {
     const page = useSelector(pagesSelector)
 
     const isPostVisible = useSelector(isPostVisibleSelector)
+    const bkgColor = useSelector(bkgColorSelector)
     const isMobile = useWidthWindowSize() >= 768 ? false : true
     const content = useSelector(contentSelector)
 
@@ -218,7 +229,6 @@ const Home = () => {
                 onClick={() => toggleClick()}
                 dangerouslySetInnerHTML={{ __html: content }} 
             />
-
             <StyledPageSections id="StyledPageSections">
                 <ModalLoader 
                     loading={!isPostSuccess}
@@ -243,15 +253,27 @@ const Home = () => {
                                         {the_blog_title}
                                     </StyledLogo>
                                 </StyledTopSXPage>
-                                {/* <StyledSuperButtons
-                                    href={regataScript_landing}
-                                    target="_blank"
-                                    ismobile={isMobile}
+                                {/* <StyledTopDXPage
+                                    id="StyledTopDXPage" 
                                 >
-                                    <img src={regataLogo} alt={regataScript_alt} />
-                                </StyledSuperButtons> */}
+                                    <StyledSuperButtons
+                                        href={regataScript_landing}
+                                        target="_blank"
+                                        ismobile={isMobile}
+                                    >
+                                        <img src={regataLogo} alt={regataScript_alt} />
+                                    </StyledSuperButtons>
+                                    <StyledSuperButtons
+                                        href={regataScript_landing}
+                                        target="_blank"
+                                        ismobile={isMobile}
+                                    >
+                                        <img src={regataLogo} alt={regataScript_alt} />
+                                    </StyledSuperButtons>
+                                </StyledTopDXPage> */}
                             </StyledTopPage>
-                            <Whatsapp />
+                            {/* <Whatsapp /> */}
+                            <MenuButton />
                             <StyledBottomPage 
                                 id="StyledBottomPage"
                                 ismobile={isMobile}
