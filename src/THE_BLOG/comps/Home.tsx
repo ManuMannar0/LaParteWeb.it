@@ -14,6 +14,7 @@ import { regataScript_alt, regataScript_landing, the_blog_title } from "THE_BLOG
 import BkgVideo from "./BkgVideo";
 import BkgImage from "./BkgImage";
 import Whatsapp from "./Whatsapp";
+import Mail from "./Mail";
 import regataLogo from "../imgs/regataLogo.png"
 import MenuButton from "./MenuButton";
 
@@ -272,8 +273,9 @@ const Home = () => {
                                     </StyledSuperButtons>
                                 </StyledTopDXPage> */}
                             </StyledTopPage>
+                            <Mail />
                             {/* <Whatsapp /> */}
-                            <MenuButton />
+                            {/* <MenuButton /> */}
                             <StyledBottomPage 
                                 id="StyledBottomPage"
                                 ismobile={isMobile}

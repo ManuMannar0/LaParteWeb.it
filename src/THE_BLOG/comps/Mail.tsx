@@ -1,21 +1,15 @@
 import styled from 'styled-components'
-import wa from '../imgs/mail.png'
+import mail from '../imgs/mail.png'
 
-const StyledWhatsapp = styled.a`
+const StyledMail = styled.a`
     z-index: 1;
-    background: #2fc7c2e3;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-
-    animation-name: backgroundColorPalette;
-	animation-duration: 8s;
-	animation-iteration-count: infinite;
-	animation-direction: alternate;
-	animation-timing-function: linear; 
-
+    right: 1rem;
+    position: absolute;
+    top: 1rem;
+    
     img{
-        width: 3.5rem;
+        width: 3rem;
+        filter: invert(1);
     }
 
     @keyframes backgroundColorPalette {
@@ -37,7 +31,7 @@ const StyledWhatsapp = styled.a`
 }
 `
 
-const Whatsapp = () => {
+const Mail = () => {
     // const [isVertical, setIsVertical] = useState(false)
 
     // useEffect(() => {
@@ -47,12 +41,12 @@ const Whatsapp = () => {
     // }, [window.innerWidth, window.innerHeight])
 
     return(
-        <StyledWhatsapp id="Whatsapp" href="https://wa.me/+393770875288" target="_blank" rel="noreferrer">
-            <img src={wa} alt="" />
-        </StyledWhatsapp>
+        <StyledMail id="Mail" href="mailto:laparteweb@gmail.com" target="_blank" rel="noreferrer">
+            <img src={mail} alt="mail" />
+        </StyledMail>
     ) 
 }
 
-export default Whatsapp
+export default Mail
 
 
