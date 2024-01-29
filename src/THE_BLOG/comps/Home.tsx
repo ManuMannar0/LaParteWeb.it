@@ -17,12 +17,15 @@ import Whatsapp from "./Whatsapp";
 import Mail from "./Mail";
 import regataLogo from "../imgs/regataLogo.png"
 import MenuButton from "./MenuButton";
+import CloseButton from "./CloseButton";
+import ScrollBanner from "./ScrollBanner";
 
 type ITitles = {
     post: any,
     index: number,
     title: any,
     bkgColor?: string,
+    ispostvisible: boolean
 }
 
 const StyledTitle = styled.a<{
@@ -54,25 +57,26 @@ const StyledSuperButtons = styled.a<{
         border: 1px solid white;
     }
 `
-const StyledPostContent = styled.div<{
+const StyledPostContentContainer = styled.div<{
     ispostvisible: boolean,
-    bkgcolor?: string,
+    ismobile: boolean,
 }>`
     display: ${props => props.ispostvisible ? 'block' : 'none'};
-    color: white;
-    background-color: #114b7a;
     position: fixed;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    right: 0;
-    opacity: 0.95;
     z-index: 2;
-    overflow: scroll;
-    font-size: 1.5rem;
-
+    padding: ${props => props.ismobile ? '1rem' : '11rem'};
+    padding-top: ${props => props.ismobile ? '7vh' : '4vh'};
+    max-height: 100vh;
+    overflow-y: ${props => props.ismobile ? 'scroll' : 'unset'};
+`
+const StyledPostContent = styled.div<{
+    ismobile: boolean,
+}>`
+    font-size: ${props => props.ismobile ? '3.2vh' : '2.5vw'};
+    color: black;
     p {
         padding: 1rem 1rem 0 1rem;
+
 
         br {
             display: none;
@@ -111,16 +115,35 @@ const StyledTopDXPage = styled.div`
     }
 `
 const StyledBottomPage = styled.h1<{
+    ispostvisible: boolean
     ismobile: boolean
 }>`
+    display: ${props => props.ispostvisible ? 'none' : 'block'};
     z-index: 1;
-    padding: 1rem;
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    padding: 1vw;
+    padding-bottom: ${props => props.ismobile ? '8.5vh' : '5.5vw'};
+    font-size: ${props => props.ismobile ? '10vw' : '4vw'};
     font-weight: 400;
+
+    @keyframes colorCycle {
+        0% { color: red; }
+        25% { color: blue; }
+        50% { color: green; }
+        75% { color: yellow; }
+        100% { color: red; }
+    }
+
+    .color-change {
+        animation: colorCycle 10s infinite;
+    }
 `
-const StyledLogo = styled.h5`
+const StyledLogo = styled.h5<{
+    ispostvisible: boolean
+    ismobile: boolean
+}>`
+    display: ${props => props.ispostvisible ? 'none' : 'block'};
     font-family: font;
-    font-size: 4rem;
+    font-size: ${props => props.ismobile ? '7vw' : '4vw'};
     text-transform: capitalize;
     line-height: 1;
     padding-bottom: 1rem;
@@ -224,12 +247,21 @@ const Home = () => {
 
     return(
         <>
-            <StyledPostContent 
-                id="StyledPostContent"
+            <ScrollBanner ismobile={isMobile} />
+            <Whatsapp ismobile={isMobile} ispostvisible={isPostVisible}/>
+            <StyledPostContentContainer 
+                id="StyledPostContentContainer"
                 ispostvisible={isPostVisible}
                 onClick={() => toggleClick()}
-                dangerouslySetInnerHTML={{ __html: content }} 
-            />
+                ismobile={isMobile}
+            >
+                <StyledPostContent 
+                    id="StyledPostContent"
+                    dangerouslySetInnerHTML={{ __html: content }} 
+                    ismobile={isMobile}
+                />
+                <CloseButton ismobile={isMobile} />
+            </StyledPostContentContainer>
             <StyledPageSections id="StyledPageSections">
                 <ModalLoader 
                     loading={!isPostSuccess}
@@ -249,6 +281,8 @@ const Home = () => {
                                 >
                                     <StyledLogo 
                                         id="StyledLogo"
+                                        ispostvisible={isPostVisible}
+                                        ismobile={isMobile}
                                         onClick={() => toggleLogo()}
                                     >
                                         {the_blog_title}
@@ -273,11 +307,11 @@ const Home = () => {
                                     </StyledSuperButtons>
                                 </StyledTopDXPage> */}
                             </StyledTopPage>
-                            <Mail />
-                            {/* <Whatsapp /> */}
+                            {/* <Mail /> */}
                             {/* <MenuButton /> */}
                             <StyledBottomPage 
                                 id="StyledBottomPage"
+                                ispostvisible={isPostVisible}
                                 ismobile={isMobile}
                             >
                                 {
@@ -288,6 +322,7 @@ const Home = () => {
                                                 index={index+1}
                                                 post={post.content.rendered}
                                                 title={replaceUnicode(post.title.rendered)}
+                                                ispostvisible={isPostVisible}
                                             />
                                         )
                                     }
@@ -298,7 +333,7 @@ const Home = () => {
                 />
             </StyledPageSections>
 
-            <BkgImage />
+            {/* <BkgImage /> */}
             <BkgVideo />
         </>
     )

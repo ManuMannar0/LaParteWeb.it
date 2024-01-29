@@ -11,6 +11,10 @@ const GlobalStyle = createGlobalStyle`
         src: url(${font});
     }
 
+    * {
+        user-select: none;
+    }
+
     html,body,button,ul,figure,p {
         border: 0;
         margin: 0;
@@ -26,7 +30,7 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         color: white;
-        background-color: black;
+        background-color: white;
         font-family: 'Manrope', sans-serif;
     }
 
@@ -51,7 +55,7 @@ const GlobalStyle = createGlobalStyle`
         position: fixed;
         top: 0;
         left: 0;
-        filter: opacity(0.5);
+        //filter: opacity(0.5);
     }
 `
 

@@ -1,43 +1,28 @@
 import styled from 'styled-components'
-import wa from '../imgs/mail.png'
+import wa from '../imgs/wa.png'
 
-const StyledWhatsapp = styled.a`
-    z-index: 1;
-    background: #2fc7c2e3;
-    display: flex;
+type IWA = {
+    ismobile: boolean,
+    ispostvisible: boolean
+}
+
+const StyledWhatsapp = styled.a<{
+    ismobile: boolean
+    ispostvisible: boolean
+}>`
     justify-content: center;
-    width: 100%;
-
-    animation-name: backgroundColorPalette;
-	animation-duration: 8s;
-	animation-iteration-count: infinite;
-	animation-direction: alternate;
-	animation-timing-function: linear; 
+    z-index: 3;
+    position: fixed;
+    top: ${props => props.ismobile ? '0vw' : '0vw'};
+    right: ${props => props.ismobile ? '0vw' : '0vw'};
+    display: ${props => props.ispostvisible ? 'none' : 'block'};
 
     img{
-        width: 3.5rem;
+        width: 8vh;
     }
-
-    @keyframes backgroundColorPalette {
-	0% {
-		background: #ee6055;
-	}
-	25% {
-		background: #60d394;
-	}
-	50% {
-		background: #aaf683;
-	}
-	75% {
-		background: #ffd97d;
-	}
-	100% {
-		background: #ff9b85;
-	}
-}
 `
 
-const Whatsapp = () => {
+const Whatsapp = (props: IWA) => {
     // const [isVertical, setIsVertical] = useState(false)
 
     // useEffect(() => {
@@ -47,7 +32,7 @@ const Whatsapp = () => {
     // }, [window.innerWidth, window.innerHeight])
 
     return(
-        <StyledWhatsapp id="Whatsapp" href="https://wa.me/+393770875288" target="_blank" rel="noreferrer">
+        <StyledWhatsapp id="Whatsapp" href="https://wa.me/+393791595630" target="_blank" rel="noreferrer" ismobile={props.ismobile} ispostvisible={props.ispostvisible}>
             <img src={wa} alt="" />
         </StyledWhatsapp>
     ) 
