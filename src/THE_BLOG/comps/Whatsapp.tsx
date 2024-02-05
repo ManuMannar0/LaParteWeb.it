@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import wa from '../imgs/wa.png'
+import wa from '../imgs/wa2.png'
 
 type IWA = {
     ismobile: boolean,
@@ -10,15 +10,15 @@ const StyledWhatsapp = styled.a<{
     ismobile: boolean
     ispostvisible: boolean
 }>`
-    justify-content: center;
+    /* justify-content: center;
     z-index: 3;
     position: fixed;
     top: ${props => props.ismobile ? '0vw' : '0vw'};
-    right: ${props => props.ismobile ? '0vw' : '0vw'};
-    display: ${props => props.ispostvisible ? 'none' : 'block'};
+    right: ${props => props.ismobile ? '0vw' : '0vw'};*/
+    display: ${props => props.ispostvisible ? 'none' : 'block'}; 
 
     img{
-        width: 8vh;
+        width: 4.5vh;
     }
 `
 

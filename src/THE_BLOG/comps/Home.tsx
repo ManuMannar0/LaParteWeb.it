@@ -19,6 +19,7 @@ import regataLogo from "../imgs/regataLogo.png"
 import MenuButton from "./MenuButton";
 import CloseButton from "./CloseButton";
 import ScrollBanner from "./ScrollBanner";
+import LoadingSpinner from "./LoadingSpinner";
 
 type ITitles = {
     post: any,
@@ -74,15 +75,30 @@ const StyledPostContent = styled.div<{
 }>`
     font-size: ${props => props.ismobile ? '3.2vh' : '2.5vw'};
     color: black;
+    
     p {
         padding: 1rem 1rem 0 1rem;
-
 
         br {
             display: none;
         }
     }
-
+`
+const StyledInfoContent = styled.div<{
+    ismobile: boolean,
+    ispostvisible: boolean,
+}>`
+    display: ${props => props.ispostvisible ? 'none' : 'block'}; 
+    font-size: ${props => props.ismobile ? '1.8vh' : '1.5vw'};
+    color: #0c5681;
+    text-align: end;
+    
+    p {
+        /* padding: 1rem 1rem 0 1rem; */
+        white-space: nowrap;
+        font-weight: bold;
+        font-style: italic;
+    }
 `
 const StyledPageSections = styled.div`
     display: flex;
@@ -102,18 +118,13 @@ const StyledTopPage = styled.div<{
     gap: 3rem;
 `
 const StyledTopSXPage = styled.div`
-    p {
-        font-size: 1.5rem;
-    }
-`
-const StyledTopDXPage = styled.div`
     display: flex;
     flex-direction: column;
-    
-    p {
-        font-size: 1.5rem;
-    }
+    gap: 1vw;
+    align-items: flex-end;
 `
+const StyledTopDXPage = StyledTopSXPage;
+
 const StyledBottomPage = styled.h1<{
     ispostvisible: boolean
     ismobile: boolean
@@ -124,18 +135,6 @@ const StyledBottomPage = styled.h1<{
     padding-bottom: ${props => props.ismobile ? '8.5vh' : '5.5vw'};
     font-size: ${props => props.ismobile ? '10vw' : '4vw'};
     font-weight: 400;
-
-    @keyframes colorCycle {
-        0% { color: red; }
-        25% { color: blue; }
-        50% { color: green; }
-        75% { color: yellow; }
-        100% { color: red; }
-    }
-
-    .color-change {
-        animation: colorCycle 10s infinite;
-    }
 `
 const StyledLogo = styled.h5<{
     ispostvisible: boolean
@@ -149,6 +148,8 @@ const StyledLogo = styled.h5<{
     padding-bottom: 1rem;
     cursor: pointer;
     width: fit-content;
+    left: ${props => props.ismobile ? '-1vw' : '-0.5vw'};
+    position: relative;
 `
 
 const Title = (props: ITitles) => {
@@ -247,8 +248,6 @@ const Home = () => {
 
     return(
         <>
-            <ScrollBanner ismobile={isMobile} />
-            <Whatsapp ismobile={isMobile} ispostvisible={isPostVisible}/>
             <StyledPostContentContainer 
                 id="StyledPostContentContainer"
                 ispostvisible={isPostVisible}
@@ -264,10 +263,10 @@ const Home = () => {
             </StyledPostContentContainer>
             <StyledPageSections id="StyledPageSections">
                 <ModalLoader 
-                    loading={!isPostSuccess}
-                    error={isPostError }
+                    loading={isPostLoading}
+                    error={isPostError}
                     success={isPostSuccess}
-                    componentOnLoading={<></>}
+                    componentOnLoading={<LoadingSpinner />}
                     // componentOnLoading={<FlowBanner text={the_blog_title}/>}
                     componentOnError={<></>}
                     componentOnSuccess={
@@ -288,24 +287,24 @@ const Home = () => {
                                         {the_blog_title}
                                     </StyledLogo>
                                 </StyledTopSXPage>
-                                {/* <StyledTopDXPage
-                                    id="StyledTopDXPage" 
-                                >
-                                    <StyledSuperButtons
+                                <StyledTopDXPage id="StyledTopDXPage">
+                                    <Whatsapp ismobile={isMobile} ispostvisible={isPostVisible}/>
+                                    <StyledInfoContent 
+                                        id="StyledInfoContent"
+                                        dangerouslySetInnerHTML={{ __html: 
+                                            "<p>SERVICES:</p><p>landing pages</p><p>blog</p><p>e-commerce sites</p><p>AI integrations</p>" 
+                                        }} 
+                                        ismobile={isMobile}
+                                        ispostvisible={isPostVisible}
+                                    />
+                                    {/* <StyledSuperButtons
                                         href={regataScript_landing}
                                         target="_blank"
                                         ismobile={isMobile}
                                     >
                                         <img src={regataLogo} alt={regataScript_alt} />
-                                    </StyledSuperButtons>
-                                    <StyledSuperButtons
-                                        href={regataScript_landing}
-                                        target="_blank"
-                                        ismobile={isMobile}
-                                    >
-                                        <img src={regataLogo} alt={regataScript_alt} />
-                                    </StyledSuperButtons>
-                                </StyledTopDXPage> */}
+                                    </StyledSuperButtons> */}
+                                </StyledTopDXPage>
                             </StyledTopPage>
                             {/* <Mail /> */}
                             {/* <MenuButton /> */}
@@ -332,7 +331,7 @@ const Home = () => {
                     }
                 />
             </StyledPageSections>
-
+            <ScrollBanner ismobile={isMobile} />
             {/* <BkgImage /> */}
             <BkgVideo />
         </>

@@ -45,6 +45,8 @@ const ScrollBanner = ({ismobile}: {ismobile: boolean}) => {
                                 <span style={{ opacity: 0 }}>---------------------</span>
                                 <a href="https://wa.me/+393791595630" target="_blank" rel="noreferrer">+39 379 159 5630</a>
                                 <span style={{ opacity: 0 }}>---------------------</span>
+                                <span>P.IVA: 02674160060</span>
+                                <span style={{ opacity: 0 }}>---------------------</span>
                                 <span>We works with and for creatives</span>
                                 <span style={{ opacity: 0 }}>---------------------</span>
                                 <a href="mailto:laparteweb@gmail.com" target="_blank">laparteweb@gmail.com</a>
